@@ -1,0 +1,130 @@
+\documentclass{sigchi}
+
+% Use this command to override the default ACM copyright statement (e.g. for preprints). 
+% Consult the conference website for the camera-ready copyright statement.
+
+
+\toappear{
+Copyright is held by Freund and Elkherj. Publication rights licensed to ACM.\\ 
+{\emph{L@S'14}}, March 4--5, 2014, Atlanta, GA. \\
+ACM 978-1-4503-2669-8/14/03 \\
+((DOI HERE))
+}
+
+% Arabic page numbers for submission. 
+% Remove this line to eliminate page numbers for the camera ready copy
+%\pagenumbering{arabic}
+
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, 
+% to give it a fighting chance of not being over-written, 
+% since its job is to redefine many LaTeX commands.
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+pdftitle={L@S 2014 Work-in-Progress Format},
+pdfauthor={LaTeX},
+pdfkeywords={SIGCHI, proceedings, archival format},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{A system for sending the right hint at the right time}
+
+\numberofauthors{3}
+\author{
+  \alignauthor Matthew Elkherj\\
+    \affaddr{UCSD}\\
+    \affaddr{La Jolla, CA, 92037}\\
+    \email{melkherj@ucsd.edu}\\
+  \alignauthor Yoav Freund\\
+    \affaddr{UCSD}\\
+    \affaddr{La Jolla, CA, 92037}\\
+    \email{yfreund@ucsd.edu}\\
+}
+
+\maketitle
+
+\begin{abstract}
+Hints are sometimes used in online learning system to help students
+when they are having difficulties. However, in all of the systems we
+are aware of, the hints are fixed ahead of time and do not depend on
+the unsuccessful attempts the student has already made. This severely
+limits the effectiveness of the hints.
+
+We have developed an alternative system for giving hints to
+students. The main difference is that the system allows an instructor
+to send a hint to a student {\em after} the student the student has
+made several attempts to solve the problem and failed.  After
+analyzing the student's mistakes, the instructor is better able to
+understand the problem in the student's thinking and send them a more
+helpful hint.
+
+We have deplyed this system in a probability and statistics course
+with 176 students. We have demonstrated the superiority of the new
+hints methodology over the traditional one.
+
+The limiting factor on the effectiveness of our system is the amount
+of manual labor required to send each hint. This is the main obstacle
+we see in scaling this approach to larger classes and to MOOCs. We
+are currently exploring several approaches for addressing this
+problem: 1) Letting students send hints to their peers. 2) Creating
+hint libraries. 3) Using machine learning methods to automate
+the process of mapping student mistakes to the most relevant hint.
+
+\end{abstract}
+
+\keywords{Online Homework; Hints; Real-time intervension}
+
+\category{K.3.1}{COMPUTERS AND EDUCATION}{Computer Uses in Education}
+
+\section{The challange}
+
+\section{Our approach}
+
+\section{Future Directions}
+Our Video: \url{http://youtu.be/7KNzBAlh8L0}
+
+\section{References format}
+References must be the same font size as other body text.
+% REFERENCES FORMAT
+% References must be the same font size as other body text.
+
+\bibliographystyle{acm-sigchi}
+\bibliography{sample}
+\end{document}
