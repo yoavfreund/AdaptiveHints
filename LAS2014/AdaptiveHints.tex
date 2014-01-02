@@ -60,7 +60,6 @@ breaklinks=true,
 % create a shortcut to typeset table headings
 \newcommand\tabhead[1]{\small\textbf{#1}}
 
-
 % End of preamble. Here it comes the document.
 \begin{document}
 
@@ -95,7 +94,7 @@ analyzing the student's mistakes, the instructor is better able to
 understand the problem in the student's thinking and send them a more
 helpful hint.
 
-We have deplyed this system in a probability and statistics course
+We have deployed this system in a probability and statistics course
 with 176 students. We have demonstrated the superiority of the new
 hints methodology over the traditional one.
 
@@ -109,22 +108,137 @@ the process of mapping student mistakes to the most relevant hint.
 
 \end{abstract}
 
-\keywords{Online Homework; Hints; Real-time intervension}
+\keywords{Online Homework; Hints; Real-time intervention}
 
 \category{K.3.1}{COMPUTERS AND EDUCATION}{Computer Uses in Education}
 
-\section{The challange}
+\section{The challenge}
+Webwork~\cite{WebWork} is a popular system for administering homework
+assignments in mathematics. Webwork has been in use for almost twenty
+years and is currently used in more than 700 colleges and universities
+around the world. One of it's most attractive aspects is the vast
+Open Problem Library that contains more than 25,000 problems in
+various areas of mathematics.
 
-\section{Our approach}
+We have been using Webwork in the upper-division undergraduate course:
+UCSD/CSE103: Introduction to probability and Statistics. The main
+advantage from the student perspective is receiving immediate feedback
+on their answers. Many problems are broken into steps, guiding the
+students how to partition a problem into smaller and easier parts and
+providing immediate feedback on the answer for each part. Students
+reaction was positive to the introduction of the webwork
+system. However, some of the stronger students are actually slowed
+down by the multi-part questions. They start by finding the final
+answer and then go back and fill in the steps so that they can get
+full credit.
+
+On the other end of the spectrum, there is a significant fraction of
+students that continues to struggle, even with all of the multi-step
+help.  While most students devote to each part less than five minutes
+and get the correct answer within two or three trials. Struggling
+students often spend 30 minutes or more on a problem and might
+eventually give up without finding the correct answer.
+
+Moreover, detailed analysis shows that the struggling students often
+find an almost-correct answer after a few trials. However, the webwork
+system is not able to distinguish ``almost-correct'' from
+``incorrect'' and gives the same feedback to the student. The student
+seems to lose faith in their own thinking and spends long periods of
+time in frustration, often never finding the correct answer.  (Some of
+these findings are described in a You-Tube video~\cite{ElkherjFr2013}.
+
+\section{Adaptive hints}
+In order to effectively help these struggling students, we developed a
+system we call ``adaptive hints'' which is an extension of
+Webwork~\footnote{we chose to develop our application as an
+  independent that extends webwork, rather than as a tightly
+  integrated extension, so that it would be relatively easy to port
+  the extension to other online education frameworks such as
+  edX.}. The purpose of the system is to help instructors identify
+struggling students in real time, identify their closest-to-correct
+answer, and send them a personalized hint that would help them in a
+productive direction. The hints that we give are, for the most part,
+questions. The goal of the question is to help the student become
+aware of the mistake in their thinking.
+
+Providing hints as part of online problems is a long standing
+practice. The novelty in our adaptive hints system is that the hints 
+are written {\em after} student mistakes are observed by an instructor.
+Standard hints are written together with the problem and represent the
+single most common mistake that the problem author expects the
+students to make.
+
+However, our experience shows that student mistakes are hard to
+predict and often arise from a fundamental conceptual
+misunderstanding. A good example is the difference between ``order
+matters'' and ``order does not matter'' in combinatorics.
+Students often believe they understand the concept but their
+understanding is incorrect. It is only by observing the student's 
+mistakes that such misunderstandings can be revealed and corrected.
+Our system is therefor closer to a tutoring system, with the advantage
+of better utilization of tutor time, as one tutor can help 4-5
+students at the same time, rather than just one.
+
+\section{Results from deployment}
+We have deployed our system in the ``An introduction to probability and
+statistics'' given in the Fall quarter or 2013 in UCSD. This has been
+the second time that we used Webwork in the course and the first time
+that we used the adaptive hints. There were 176 students in the class,
+an instructor (Dr. Freund) three TAs and two tutors. The tutors were
+both students in the class in Fall 2012, the first time that webwork
+was used. The adaptive hints system was built and deployed by the TAs.
+
+Feedback from students was very positive. A common reaction was
+``webwork with hints makes you learn''.
+
+We measured the effectiveness of the hints by analyzing the logs ...
+
+Matt's section here.
+
+While our system proved effective for the students that got hints, it
+proved difficult for a staff of six (instructor, three TAs and two
+tutors) to produce generates enough hints to satisfy the need.
 
 \section{Future Directions}
-Our Video: \url{http://youtu.be/7KNzBAlh8L0}
+We know that tutoring through hints is effective. The challenge we now
+face is how to effectively scale up the system so that all students
+that need help get effective hints. Our first step in this direction
+was to create a hint database which allows instructors to reuse, share
+and improve upon previously written hints. Other directions we plan to
+pursue are:
+\begin{itemize}
+\item {\bf Automatic assignment of hints:} We plan to use machine
+  learning methods to automate the mapping of incorrect answers to
+  hints. More specifically, we plan to use semi-supervised clustering
+  algorithms to group the mistakes. After the instructor associates a
+  hint with each cluster, we plan to use classification learning
+  algorithm to map mistakes into hints.
+\item {\bf Empowering students:} In our experience, undergraduate
+  tutors are often the most effective at identifying mistakes and
+  writing hints. Tutors are students that have done well in the class
+  in a previous year. Based on this, we plan to give students that are
+  performing well the possibility of authoring and assigning hints to
+  their fellow students that are struggling. Students that give
+  effective hints (but not by giving the answer) will be rewarded with
+  extra credit points. 
+\item {\bf Integrating With Discussion Boards:} We use the {\bf
+  Piazza}~\cite{Piazza} discussion system, and students often discuss
+  individual Webwork problems. Cross linking the problems and the
+  discussion items will help students and instructors effectively
+  distribute questions and answers.
+\item {\bf The knowledge graph:} Currently hints operate within
+  questions independently, each hint providing help for a specific
+  problem part. As different approach can be to provide the student
+  with a link to an earlier lesson which teaches something they are
+  rusty on. Such links extend the standard linear order of subjects
+  into a ``knowledge graph'' which represent the pre-requisite
+  relationships between subjects. Linking lessons in this way can help
+  students separate what they need to learn from what they already
+  know.
+\end{itemize}
 
-\section{References format}
-References must be the same font size as other body text.
-% REFERENCES FORMAT
-% References must be the same font size as other body text.
+\section{References}
 
 \bibliographystyle{acm-sigchi}
-\bibliography{sample}
+\bibliography{AdaptiveHints}
 \end{document}
