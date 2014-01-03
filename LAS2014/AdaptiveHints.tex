@@ -189,15 +189,48 @@ both students in the class in Fall 2012, the first time that webwork
 was used. The adaptive hints system was built and deployed by the TAs.
 
 Feedback from students was very positive. A common reaction was
-``webwork with hints makes you learn''.
+``webwork with hints force you to actually learn''.
 
-We measured the effectiveness of the hints by analyzing the logs ...
+Here are some statistics that demonstrate the effectiveness of our
+system. A total of 1897 hints were sent to students. Out of
+these, the receiving student attempted to answer 792 of the hints and
+answered correctly 440 of the hints. We refer to the last 440 cases as
+the ``confirmed-impact hints''. Out of the 440 cinfirmed imact hints
+the final answer provided by the student was correct.
 
-Matt's section here.
+To prove that the hints significantly improved the performance of the
+student, we wish to reject the null hypothesis stating that the hints
+have no effect on performance. We use a Monte-Carlo simulation to
+estimate the statistics under the null hypothesis and compare them to
+the statistics measured in the experiment. The Monte Carlo estimation
+randomly picks a sequence of student attempts and the attempt number
+in which the hint was given (hints are usually given only after the
+student makes at least 5 unsuccessful attempts.)
+
+Specifically, we test for the following alternative hypotheses:
+\begin{enumerate}
+\item The probability that the student answers a problem part
+  correctly after receiving a confirmed-impact hint is higher than
+  otherwise. Using the 440 confirmed impact cases we get that the
+  probability of getting the final answer correctly is 0.911 while in
+  according to the null hypothesis it is 0.905. This means that the
+  test {\em failed} and that the effectiveness of the hints cannot be
+  judged by whether or not the students got the final answer
+  correctly.
+\item Given that a problem part is eventually answered correctly, the
+  expected number of attempts after a confirmed-imact hint is
+  significantly smaller than otherwise. Using the 401 cases with
+  confirmed hint and a final correct answer and the Welch's t-test 
+  for two samples having the same mean, possibly different unknown 
+  population variance gives a t-statistic of -4.592 and very
+  significant p-value of 5.527e-06
+\end{enumerate}
 
 While our system proved effective for the students that got hints, it
 proved difficult for a staff of six (instructor, three TAs and two
-tutors) to produce generates enough hints to satisfy the need.
+tutors) to produce generates enough hints to satisfy the need. We
+estimate that we sent hints to around 5\% of the students that could
+have benefited from them.
 
 \section{Future Directions}
 We know that tutoring through hints is effective. The challenge we now
